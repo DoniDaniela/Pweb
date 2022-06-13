@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@Html.Partial("_FrontPartial")
+<div class="jumbotron">
+    <h1>Game Shop</h1>
+    <p>Welcome to Game Shop! Register or Log In to download apps and games here!</p>
+    <div class="row">
+        <div class="col-sm-2">@Html.ActionLink("Applications", "App", "Product")</div>
+        <div class="col-sm-2">@Html.ActionLink("Games", "Game", "Product")</div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
+<div class="panel-group">
+    <div class="panel panel-primary">
+        <div class="panel-body">Default User Account</div>
+    </div>
+    <div class="panel panel-default">
+        <ul class="list-group">
+            <li class="list-group-item">admin@gameshop.com / admin</li>
+            <li class="list-group-item">user@gameshop.com / User@2022</li>
+        </ul>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,19 @@
+﻿@using GameStore.Extension;
+@model GameStore.WebUI.Areas.Admin.Models.DTO.ProductDTO
+@{
+    ViewBag.Title = "Product Detail";
+}
+@Html.Partial("_FrontPartial")
+@Html.HiddenFor(o=>o.ProductId)
+<div class="row" style="text-align:center;">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3"><img src="~/images/@Model.Image" class="img-responsive" style="width:300px" alt="Image"></div>
+    <div class="col-sm-3">
+        <div>
+            <h2>@Model.ProductName <small><span class="label label-danger">@Model.CategoryName</span></small></h2>
+            <div>Condition: @Model.Condition</div>
+        </div>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+

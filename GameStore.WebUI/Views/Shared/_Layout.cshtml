@@ -1,0 +1,68 @@
+﻿@using GameStore.Extension
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Game Shop</title>
+    <link rel="icon" type="image/x-icon" href="~/images/favorite.ico">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/app")
+    <link rel="stylesheet" href="~/Content/app.min.css">
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/fancy")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .vcenter {
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+        }
+    </style>
+    <script>
+        function access_app(url) {
+            var win = window.open(url, '_blank');
+            if (win) {
+                win.focus();
+            } else {
+                alert('Please allow popups for this website');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="nav navbar-nav">
+                    <li class="@Html.IsSelected(actions: "Index", controllers: "Home")">@Html.ActionLink("Game Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="@Html.IsSelected(actions: "App", controllers: "Product")">@Html.ActionLink("Applications", "App", "Product", new { area = "" }, null)</li>
+                    <li class="@Html.IsSelected(actions: "Game", controllers: "Product")">@Html.ActionLink("Games", "Game", "Product", new { area = "" }, null)</li>                    
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container">        
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Game Shop</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
